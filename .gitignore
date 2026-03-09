@@ -1,0 +1,23 @@
+# Build artifacts
+Fm4_Project/obj/
+Fm4_Project/*.lnp
+Fm4_Project/*.log
+
+# IDE project files
+Fm4_Project/*.uvprojx
+Fm4_Project/*.uvoptx
+Fm4_Project/*.uvguix.ceedsr1
+
+# MATLAB temporary files
+MATLAB/*.m~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Gitignore for temporary files
+*.tmp
+*.bak
+
+# Other
+**/.*.sw?

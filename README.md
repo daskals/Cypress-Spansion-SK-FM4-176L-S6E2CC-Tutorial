@@ -4,6 +4,40 @@
 
 ---
 
+## About the Board — Spansion SK-FM4-176L-S6E2CC
+
+The **Spansion SK-FM4-176L-S6E2CC** is a professional ARM Cortex-M4 development board from Cypress Semiconductor (formerly Spansion), part of the FM4 family of 32-bit microcontrollers. The FM4 series is based on Fujitsu/Spansion's high-performance embedded controller line, and the **S6E2CC** chip used on this board is one of the most capable devices in the family.
+
+More information and SEGGER evaluation software support for this board can be found at:
+[https://www.segger.com/evaluate-our-software/cypress-semiconductor/spansion-sk-fm4-176l-s6e2cc/](https://www.segger.com/evaluate-our-software/cypress-semiconductor/spansion-sk-fm4-176l-s6e2cc/)
+
+### Key Specifications
+
+| Feature | Details |
+|---|---|
+| **Core** | ARM Cortex-M4 @ 200 MHz with DMA |
+| **Performance** | 675 CoreMark |
+| **FPU** | Single-precision IEEE 754 floating point unit |
+| **On-chip Flash** | 2 MB |
+| **On-chip SRAM** | 256 KB |
+| **GPIO** | 190 pins |
+| **Package** | 176-pin LQFP |
+| **External Flash** | 32 Mbit Quad SPI Flash |
+| **External RAM** | 16 Mbit PSRAM |
+
+### On-Board Peripherals
+
+- 10/100 Ethernet (IEEE 802.3)
+- USB Host and Device
+- CAN and LIN interfaces
+- High-Speed Quad SPI, I2C, UART, I2S
+- CMSIS-DAP JTAG on-board debugger (no external probe needed)
+- Stereo codec with voice controller capability
+- RGB LED, acceleration sensor, phototransistor, user button
+- Arduino-compatible expansion interface
+
+---
+
 ## Before You Begin
 
 Make sure you have the following ready:
@@ -29,12 +63,10 @@ Make sure you have the following ready:
 5. Once downloaded, right-click the installer and select **Run as Administrator**
 6. Click **Next** on the welcome screen
 7. Accept the licence agreement and click **Next**
-8. Make the installation path as below instead of default also arm toolchain path is :
-    
-    ```
-    C:\Keil_v5
-    C:\Arm
-    ```
+8. Set the installation paths as shown below (do not use the defaults):
+
+    - Keil MDK path: `C:\Keil_v5`
+    - ARM toolchain path: `C:\Arm`
     
     > ⚠️ Do NOT change this path — other steps depend on it
 9. Fill in your name and organisation, then click **Next**
@@ -44,7 +76,9 @@ Make sure you have the following ready:
 
 ---
 
-## PART 2: Install Required Packs (Better to keep this window open instead open the FM_4 project file and install whatever file is prompted)
+## PART 2: Install Required Packs
+
+> **Tip:** Keep the Pack Installer open throughout this part. Alternatively, you can open the FM4 project file directly and install any missing packs when prompted.
 
 > The Pack Installer should still be open from Part 1. If not, go to **Project → Manage → Pack Installer** in Keil.
 
@@ -84,7 +118,7 @@ Make sure you have the following ready:
 > Newer versions of Keil no longer bundle AC5. It must be installed separately.
 
 1. Go to: **https://developer.arm.com/tools-and-software/embedded/arm-compiler/downloads/version-5**
-2. Sign in with your Arm account (created in Part 2)
+2. Sign in with your Arm account (created during the Keil download registration in Part 1)
 3. Download **ARM Compiler 5.06 update 7 (build 960)** — choose the **Windows 32** version
     
     > If the ARM website is not working, try this direct link: **https://developer.arm.com/downloads/view/ACOMP5**
@@ -107,12 +141,9 @@ Make sure you have the following ready:
 11. Under **ARM Compiler Folders**, click the **"..."** browse button
 12. Navigate to:
 
-```
-```
-C:\Keil_v5\ARM\ARMCC
-
-```
-```
+    ```
+    C:\Keil_v5\ARM\ARMCC
+    ```
 
 13. Click **Add** then **OK** to close
 
@@ -137,14 +168,19 @@ C:\Keil_v5\ARM\ARMCC
 
 ## PART 5: Build and Run the Project
 
-1. Go to **Project → Rebuild All Target Files** (or press **F7**)
-2. Watch the Build Output window at the bottom. A successful build looks like:
-    
+1. Connect your FM4 board to your PC via USB before proceeding
+2. Go to **Project → Rebuild All Target Files** (or press **F7**)
+3. Watch the Build Output window at the bottom. A successful build looks like:
+
     ```
     "fm4_project.axf" - 0 Error(s), 0 Warning(s).
     Build Time Elapsed: 00:00:XX
     ```
-3. Make sure your FM4 board is connected via USB
+4. To flash the firmware to the board, go to **Flash → Download** (or press **F8**)
+5. The Output window should confirm programming is complete. The board will reset and start running your code automatically.
 
+---
 
+## Acknowledgements
 
+Special thanks to [Shayan Majumder](https://github.com/ShayanMajumder) for his valuable contributions to this repository.
